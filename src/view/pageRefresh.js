@@ -1,4 +1,5 @@
 import { LockingTheFirstPanel } from '../modul/itemSearch';
+
  const pageState = {
   pastPageElement: undefined,
   currentPageElement: undefined,
@@ -15,9 +16,10 @@ export function pageRefresh() {
   if (pageState.currentPageElement) {
     pageState.currentPageElement.classList.add('excretion');
   }
-  if (pageState.pastPageElement) {
+  if (pageState.pastPageElement && pageState.pastPageElement !== pageState.currentPageElement) {
     pageState.pastPageElement.classList.remove('excretion');
   }
+
   if (pageState.selectorNext === false && LockingTheFirstPanel.value === false) {
     document.querySelector('.selector-next').disabled = false;
   }
